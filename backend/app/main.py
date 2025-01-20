@@ -6,15 +6,9 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://picture-estimate-ai.pages.dev",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -26,7 +20,7 @@ async def root():
 
     connect = pymysql.connect(
         host="mariadb",
-        user="root",
+        user="docker_test_user",
         password="kimidori1231!",
         db="docker_test_db",
         charset="utf8mb4",
