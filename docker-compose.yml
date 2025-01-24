@@ -3,19 +3,12 @@ services:
     frontend:
         container_name: docker_test_app_frontend
         build: ./frontend
-        volumes:
-            - ./frontend:/app
-            - /app/node_modules
         ports:
             - '3000:80'
         restart: always
     backend:
         container_name: docker_test_app_backend
         build: ./backend
-        volumes:
-            - ./backend:/app
-            - /app/venv
-            - /app/__pycache__
         ports:
             - 8080:80
         restart: always
